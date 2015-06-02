@@ -9,7 +9,8 @@
 #ifndef WS_AFNetworking_WSNetworkHeader_h
 #define WS_AFNetworking_WSNetworkHeader_h
 
+#import "NSFileManager+TXCategory.h"
 
-#define HOST_URL @"www.itrydo.com"
+#define HOST_URL @"http://www.itrydo.com"
 
 #endif

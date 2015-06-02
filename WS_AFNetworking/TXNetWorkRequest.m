@@ -9,6 +9,7 @@
 #import "TXNetWorkRequest.h"
 #import <UIProgressView+AFNetworking.h>
 #import "WSNetworkHeader.h"
+#define kTXLiabray @"TXLiabrary"
 @implementation TXNetWorkRequest
 //get请求
 +(AFHTTPRequestOperation *)get:(NSString *)urlString parameters:(NSDictionary *)param done:(ApiDoneCallback)doneCallback error:(ApiErrorCallback)errorCallback{
@@ -17,7 +18,7 @@
     return [manager GET:[TXNetWorkRequest urlStringDecorate:urlString] parameters:[TXNetWorkRequest paramDecorate:param] success:doneCallback failure:errorCallback];
 }
 
-+(void)tx_get:(NSString *)urlString parameters:(NSDictionary *)param shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx
++(void)ws_get:(NSString *)urlString parameters:(NSDictionary *)param shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx
 {
     [TXNetWorkRequest get:urlString parameters:param done:^(AFHTTPRequestOperation *operation, id responseObject)
      {
@@ -55,7 +56,7 @@
     manager.requestSerializer.timeoutInterval = 30;
     return [manager POST:[TXNetWorkRequest urlStringDecorate:urlString] parameters:[TXNetWorkRequest paramDecorate:param] success:doneCallback failure:errorCallback];
 }
-+(void)tx_post:(NSString *)urlString parameters:(NSDictionary *)param shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx
++(void)ws_post:(NSString *)urlString parameters:(NSDictionary *)param shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx
 {
     
     [TXNetWorkRequest post:urlString parameters:param done:^(AFHTTPRequestOperation *operation, id responseObject)
@@ -91,7 +92,7 @@
     manager.requestSerializer.timeoutInterval = 30;
     return [manager PUT:[TXNetWorkRequest urlStringDecorate:urlString] parameters:[TXNetWorkRequest paramDecorate:param] success:doneCallback failure:errorCallback];
 }
-+(void)tx_put:(NSString *)urlString parameters:(NSDictionary *)param shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx
++(void)ws_put:(NSString *)urlString parameters:(NSDictionary *)param shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx
 {
     [TXNetWorkRequest put:urlString parameters:param done:^(AFHTTPRequestOperation *operation, id responseObject)
      {
@@ -131,7 +132,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     return [manager DELETE:[TXNetWorkRequest urlStringDecorate:urlString] parameters:[TXNetWorkRequest paramDecorate:param] success:doneCallback failure:errorCallback];
 }
-+(void)tx_delete:(NSString *)urlString parameters:(NSDictionary *)param shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx
++(void)ws_delete:(NSString *)urlString parameters:(NSDictionary *)param shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx
 {
     [TXNetWorkRequest delete1:urlString parameters:param done:^(AFHTTPRequestOperation *operation, id responseObject)
      {
@@ -162,8 +163,6 @@
 #pragma mark - 网络请求参数设置修饰等
 + (NSString *)urlStringDecorate:(NSString *)urlString
 {
-//    NSLog(@"%@",[NSMutableString stringWithFormat:@"%@%@sys=%@&version=%@&remember_token=%@",HOST_URL,urlString,@"iphone",[[TXCommonMessage sharedTXCommonMessage] version],[[TXCommonMessage sharedTXCommonMessage] rememberToken]]);
-//    NSLog(@"%@",[NSMutableString stringWithFormat:@"%@%@sys=%@&version=%@&remember_token=%@",HOST_URL,urlString,@"iphone",[[TXCommonMessage sharedTXCommonMessage] version],[[TXCommonMessage sharedTXCommonMessage] rememberToken]]);
     NSLog(@"%@",[NSMutableString stringWithFormat:@"%@%@",HOST_URL,urlString]);
     return [NSMutableString stringWithFormat:@"%@%@",HOST_URL,urlString];
 }
@@ -177,18 +176,13 @@
     {
         dicM = [NSMutableDictionary dictionary];
     }
-    
-    
-//    [dicM setObject_safe:[[TXCommonMessage sharedTXCommonMessage] rememberToken] forKey_safe:kRememberToken];
-//    [dicM setObject_safe:[[TXCommonMessage sharedTXCommonMessage] version] forKey_safe:kVersion];
-//    [dicM setObject:@"iphone" forKey:@"sys"];
     return dicM;
 }
 
 
 
 #pragma mark - POST上传
-+ (void)tx_postUploadWithUrl:(NSString *)urlString parameters:(id)params shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx
++ (void)ws_postUploadWithUrl:(NSString *)urlString parameters:(id)params shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx
 {
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     //设置返回的数据解析格式
@@ -271,4 +265,63 @@
         
 }
 
+
+
+#pragma mark - 下载文件
+//+ (void)txFileDownLoadWithTXLibraryType:(TXLibraryType)txLibraryType
+//{
+//    
+//    NSString *urlString = [TXNetWorkRequest urlStringFromTXLiabrary:txLibraryType];
+//    
+//    
+//    
+//    
+//    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+//    
+//    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+//    
+//    NSURL *url = [NSURL URLWithString:[TXNetWorkRequest urlStringDecorate:urlString]];
+//    TXLog(@"%@",[TXNetWorkRequest urlStringDecorate:urlString]);
+//    // http://www.w3hacker.com/wp-content/uploads/2013/10/180.jpg
+//    // http://cdn.sencha.com/ext/gpl/ext-4.2.1-gpl.zip
+//    
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    
+//    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+//        
+//        NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+//        
+//        [NSFileManager ws_createFolder:kTXLiabray atPath:docPath];
+//        
+//        NSURL *documentsDirectoryPath = [NSURL fileURLWithPath:[docPath stringByAppendingPathComponent:kTXLiabray]];
+//        NSURL *savePath = [documentsDirectoryPath URLByAppendingPathComponent:[[response suggestedFilename] ws_md5_encrypt]];
+//        [[NSFileManager defaultManager] removeItemAtURL:savePath error:nil];
+//        return savePath;
+//    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+//        NSLog(@"File downloaded to: %@", filePath);
+//        NSData *data = [[NSData alloc] initWithContentsOfURL:filePath];
+//        data = [data ws_aesEncryptWithKey:kTXLiabraryAECEncyptPassword];
+//        [[NSFileManager defaultManager] removeItemAtPath:filePath.path error:nil];
+//        [data writeToURL:filePath atomically:YES];
+//        
+//        ZipArchive *zipArchive = [[ZipArchive alloc] init];
+//        
+//        NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+//        NSString *zipFilePath = [[documentPath stringByAppendingPathComponent:kTXLiabray] stringByAppendingPathComponent:[response.suggestedFilename ws_md5_encrypt]];
+//        zipFilePath = [zipFilePath stringByAppendingPathExtension:@"zip"];
+//        [zipArchive CreateZipFile2:zipFilePath];
+//        [zipArchive addFileToZip:filePath.path newname:[response.suggestedFilename ws_md5_encrypt]];
+//        [zipArchive CloseZipFile2];
+//        [[NSFileManager defaultManager] removeItemAtPath:filePath.path error:nil];
+//        //        data = [[NSData alloc] initWithContentsOfURL:filePath];
+//        //        NSDictionary *dic = [[[NSString alloc] initWithData:[data ws_aesDecryptWithKey:kTXLiabraryAECEncyptPassword] encoding:NSUTF8StringEncoding] jsonObject_tx];
+//        //        NSLog(@"%@",dic);
+//    }];
+//    
+//    [downloadTask resume];
+//    
+//    //    UIProgressView *progressView ;
+//    //    [progressView setProgressWithDownloadProgressOfTask:downloadTask animated:YES];
+//    
+//}
 @end

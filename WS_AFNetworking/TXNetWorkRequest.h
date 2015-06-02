@@ -21,23 +21,24 @@ typedef void (^ApiFormDo_tx)(id <AFMultipartFormData> formData, TXBaseViewContro
 
 //get请求
 +(AFHTTPRequestOperation *)get:(NSString *)urlString parameters:(NSDictionary *)param done:(ApiDoneCallback)doneCallback error:(ApiErrorCallback)errorCallback;
-+(void)tx_get:(NSString *)urlString parameters:(NSDictionary *)param shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx;
++(void)ws_get:(NSString *)urlString parameters:(NSDictionary *)param shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx;
 //post请求
 +(AFHTTPRequestOperation *)post:(NSString *)urlString parameters:(NSDictionary *)param done:(ApiDoneCallback)doneCallback error:(ApiErrorCallback)errorCallback;
-+(void)tx_post:(NSString *)urlString parameters:(NSDictionary *)param shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx;
++(void)ws_post:(NSString *)urlString parameters:(NSDictionary *)param shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx;
 //put请求
 +(AFHTTPRequestOperation *)put:(NSString *)urlString parameters:(NSDictionary *)param done:(ApiDoneCallback)doneCallback error:(ApiErrorCallback)errorCallback;
-+(void)tx_put:(NSString *)urlString parameters:(NSDictionary *)param shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx;
++(void)ws_put:(NSString *)urlString parameters:(NSDictionary *)param shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx;
 //patch请求
 +(AFHTTPRequestOperation *)patch:(NSString *)urlString parameters:(NSDictionary *)param done:(ApiDoneCallback)doneCallback error:(ApiErrorCallback)errorCallback;
 //delete 请求
 +(AFHTTPRequestOperation *)delete1:(NSString *)urlString parameters:(NSDictionary *)param done:(ApiDoneCallback)doneCallback error:(ApiErrorCallback)errorCallback;
-+(void)tx_delete:(NSString *)urlString parameters:(NSDictionary *)param shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx;
++(void)ws_delete:(NSString *)urlString parameters:(NSDictionary *)param shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx;
 
 #pragma mark －pic upload and dic
 #pragma mark - POST上传
-+ (void)tx_postUploadWithUrl:(NSString *)urlString parameters:(id)params shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx;
++ (void)ws_postUploadWithUrl:(NSString *)urlString parameters:(id)params shouldShowAnimation:(BOOL)sholdShowAnimation fromController:(TXBaseViewController *)txController done:(ApiDoneCallback_tx)doneCallback_tx error:(ApiErrorCallback_tx)errorCallback_tx;
 
 + (NSString *)urlStringDecorate:(NSString *)urlString;
+
 
 @end

@@ -16,6 +16,7 @@
 		4BE08A861B1D8FBF00911282 /* WS_AFNetworkingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE08A851B1D8FBF00911282 /* WS_AFNetworkingTests.m */; };
 		4BE08A921B1D90E300911282 /* TXNetWorkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE08A911B1D90E300911282 /* TXNetWorkRequest.m */; };
 		4BE08A951B1D912200911282 /* TXBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE08A941B1D912200911282 /* TXBaseViewController.m */; };
+		4BE08A991B1D95AE00911282 /* NSFileManager+TXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE08A981B1D95AE00911282 /* NSFileManager+TXCategory.m */; };
 		D76867F9E5FCDF766850F53B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 517AFA93A943036ECA2EB049 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,8 @@
 		4BE08A931B1D912200911282 /* TXBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBaseViewController.h; sourceTree = "<group>"; };
 		4BE08A941B1D912200911282 /* TXBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXBaseViewController.m; sourceTree = "<group>"; };
 		4BE08A961B1D92A300911282 /* WSNetworkHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSNetworkHeader.h; sourceTree = "<group>"; };
+		4BE08A971B1D95AE00911282 /* NSFileManager+TXCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+TXCategory.h"; sourceTree = "<group>"; };
+		4BE08A981B1D95AE00911282 /* NSFileManager+TXCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+TXCategory.m"; sourceTree = "<group>"; };
 		517AFA93A943036ECA2EB049 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B8651521CDB1635F1F2A85 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +142,8 @@
 			children = (
 				4BE08A931B1D912200911282 /* TXBaseViewController.h */,
 				4BE08A941B1D912200911282 /* TXBaseViewController.m */,
+				4BE08A971B1D95AE00911282 /* NSFileManager+TXCategory.h */,
+				4BE08A981B1D95AE00911282 /* NSFileManager+TXCategory.m */,
 				4BE08A901B1D90E300911282 /* TXNetWorkRequest.h */,
 				4BE08A911B1D90E300911282 /* TXNetWorkRequest.m */,
 				4BE08A961B1D92A300911282 /* WSNetworkHeader.h */,
@@ -298,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BE08A991B1D95AE00911282 /* NSFileManager+TXCategory.m in Sources */,
 				4BE08A921B1D90E300911282 /* TXNetWorkRequest.m in Sources */,
 				4BE08A721B1D8FBF00911282 /* ViewController.m in Sources */,
 				4BE08A6F1B1D8FBF00911282 /* AppDelegate.m in Sources */,
